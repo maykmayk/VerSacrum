@@ -1,6 +1,6 @@
 @font-face {
     font-family: "VerSacrum";
-    src: u.rl(./asset/font/verSacrum.ttf);
+    src: url(./asset/font/verSacrum.ttf);
 }
 
 @font-face {
