@@ -16,7 +16,18 @@ _app.getDate = () => {
 }
 
 _app.startUp = () => {
-    _app.getDate()
-}
+    _app.getDate();
+
+    _app.img1 = document.getElementById('img1');
+    const originalSrc = img1.src;
+
+    img1.addEventListener("mouseover", () => {
+        img1.src = "./asset/images/fullSize/tee1Back.png";
+    });
+
+    img1.addEventListener("mouseout", () => {
+        img1.src = originalSrc; 
+    });
+};
 
 _app.startUp();

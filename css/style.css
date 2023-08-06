@@ -71,6 +71,7 @@ body {
 .fourSectCont{
 	max-height: 40vh;
     border: 3px solid var(--secondary);
+	background-color: var(--secondary);
 	aspect-ratio: 1/1;
 }
 
