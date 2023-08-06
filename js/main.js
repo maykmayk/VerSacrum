@@ -28,6 +28,28 @@ _app.startUp = () => {
     img1.addEventListener("mouseout", () => {
         img1.src = originalSrc; 
     });
+
+    _app.img2 = document.getElementById('img2');
+    const originalSrc2 = img2.src;
+
+    img2.addEventListener("mouseover", () => {
+        img2.src = "./asset/images/fullSize/tee2Back.png";
+    });
+
+    img2.addEventListener("mouseout", () => {
+        img2.src = originalSrc2; 
+    });
+
+    _app.img3 = document.getElementById('img3');
+    const originalSrc3 = img3.src;
+
+    img3.addEventListener("mouseover", () => {
+        img3.src = "./asset/images/fullSize/tee3Back.png";
+    });
+
+    img3.addEventListener("mouseout", () => {
+        img3.src = originalSrc3; 
+    });
 };
 
 _app.startUp();
