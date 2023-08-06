@@ -1,26 +1,26 @@
 @font-face {
     font-family: "VerSacrum";
-    src: url(/asset/font/verSacrum.ttf);
+    src: url(../asset/font/verSacrum.ttf);
 }
 
 @font-face {
 	font-family: "VerSacrumTitle";
-	src: url(/asset/font/verSacrumTitle.ttf);
+	src: url(../asset/font/verSacrumTitle.ttf);
 }
 
 @font-face {
 	font-family: "Light";
-	src: url(/asset/font/NeueHaasDisplay-Light.ttf);
+	src: url(../asset/font/NeueHaasDisplay-Light.ttf);
 }
 
 @font-face {
 	font-family: "Reg";
-	src: url(/asset/font/NeueHaasDisplay-Mediu.ttf);
+	src: url(../asset/font/NeueHaasDisplay-Mediu.ttf);
 }
 
 @font-face {
 	font-family: "Med";
-	src: url(/asset/font/NeueHaasDisplay-Roman.ttf);
+	src: url(../asset/font/NeueHaasDisplay-Roman.ttf);
 }
 
 html, body {
