@@ -35,6 +35,16 @@ body {
     user-select: none;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.divider {
+	height: 30vh;
+}
+
 #loader {
 	z-index: 999;
     position: absolute;
@@ -73,12 +83,12 @@ body {
     cursor: pointer;
 }
 
-.instReg {
-    font-family: "InstrumentalReg";
+.verSacrum {
+    font-family: "VerSacrum";
 }
 
-.instIta {
-    font-family: "InstrumentalItalic";
+.verSacrumTitle {
+    font-family: "VerSacrumTitle";
 }
 
 .subHero{
@@ -93,6 +103,7 @@ body {
 .fourSectCont{
 	max-height: 40vh;
 	aspect-ratio: 1/1;
+	cursor: pointer;
 }
 
 .imgFit {
@@ -100,6 +111,35 @@ body {
 	width:100%;
 	height:100%;
 	object-fit:cover;
+	transform-origin: center center;
+}
+
+.imgDetail{
+	aspect-ratio: 1/1;
+	background-color: var(--secondary);
+	overflow: hidden;
+}
+
+.imgDetail:hover {
+	cursor: zoom-in;
+}
+
+.allImg{
+	max-height: 17vh;
+	aspect-ratio: 1/1;
+	background-color: var(--secondary);
+}
+
+#name {
+	font-size:70px;
+	line-height: 90%;
+}
+
+.sizes{
+	background-color: var(--secondary);
+	color: var(--primary);
+	aspect-ratio: 1/1;
+	height: 10vh;
 }
 
 @media only screen and (max-device-width: 480px){
@@ -112,4 +152,9 @@ body {
 		font-size: 150px;
 		font-family: "VerSacrum";
 	  }
+
+	#name {
+		font-size:30px;
+		line-height: 90%;
+	}
 }

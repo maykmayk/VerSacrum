@@ -16,7 +16,6 @@ _app.getDate = () => {
 }
 
 _app.startUp = () => {
-    
     window.addEventListener('load', () => {
         // La funzione viene chiamata quando tutti gli elementi della pagina sono stati caricati
       
@@ -30,7 +29,7 @@ _app.startUp = () => {
           setTimeout(() => {
             loader.style.display = 'none';
           }, 1000);
-          
+
         }, 3000);
       
         // Aggiorna il numero di caricamento da 0 a 100 con curva di Bezier
@@ -54,13 +53,11 @@ _app.startUp = () => {
           numLoader.textContent = Math.floor(bezierValue * 100); // Calcola il valore del numero con curva di Bezier
       
           if (progress < 1) {
-            // Ripeti la funzione per aggiornare il caricamento fino a quando non è completato
             requestAnimationFrame(updateLoader);
           } else {
             // Quando il caricamento raggiunge il 100%, nascondi il loader dopo 1 secondo impostando l'opacità a 0
             setTimeout(() => {
               loader.style.opacity = '0';
-              // Nascondi il loader completamente dopo 1 secondo
               setTimeout(() => {
                 loader.style.display = 'none';
               }, 1000);
@@ -71,6 +68,77 @@ _app.startUp = () => {
         // Avvia l'aggiornamento del loader
         requestAnimationFrame(updateLoader);
     });
+
+    if (document.URL.includes("index.html")) {
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            product.addEventListener('click', () => {
+              const name = product.dataset.name;
+              const price = product.dataset.price;
+              const image = product.dataset.image;
+              const secondImage = product.dataset.secondImage;
+        
+              const productData = {
+                name: name,
+                price: price,
+                image: image,
+                secondImage: secondImage
+              };
+        
+              // Memorizza i dati del prodotto nella sessionStorage
+              sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
+        
+              // Reindirizza alla pagina di dettaglio
+              window.location.href = 'product-details.html';
+            });
+        });
+    }
+
+    if (document.URL.includes("product-details.html")) {
+        // Recupera i dati del prodotto memorizzati nella sessionStorage
+        const productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
+
+        // Inserisci i dati nelle rispettive posizioni
+        if (productData) {
+            document.getElementById('productImg').src = productData.image;
+            document.getElementById('name').innerText = productData.name;
+            document.getElementById('price').innerText = productData.price;
+            document.getElementById('secondProductImg').src = productData.secondImage;
+
+            document.getElementById('secondProductImg').addEventListener('click', () => {
+                // Scambia i percorsi delle immagini
+                const temp = productData.image;
+                productData.image = productData.secondImage;
+                productData.secondImage = temp;
+          
+                // Aggiorna le immagini nella pagina
+                document.getElementById('productImg').src = productData.image;
+                document.getElementById('secondProductImg').src = productData.secondImage;
+          
+                // Aggiorna i dati salvati nella sessionStorage
+                sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
+              });
+        } else {
+            // Nessun dato del prodotto trovato, gestisci questo caso a tua discrezione
+            alert('Something went worng :(');
+        }
+
+        const container = document.getElementById("imgDetail");
+        const img = document.getElementById("productImg");
+        container.addEventListener("mousemove", onZoom);
+        container.addEventListener("mouseover", onZoom);
+        container.addEventListener("mouseleave", offZoom);
+        function onZoom(e) {
+            const x = e.clientX - e.target.offsetLeft;
+            const y = e.clientY - e.target.offsetTop;
+            img.style.transformOrigin = `${x}px ${y}px`;
+            img.style.transform = "scale(2.5)";
+        }
+        function offZoom(e) {
+            img.style.transformOrigin = `center center`;
+            img.style.transform = "scale(1)";
+        }
+    }
 
     _app.getDate();
 
@@ -89,5 +157,7 @@ _app.startUp = () => {
         });
     }
 };
+
+
 
 _app.startUp();
