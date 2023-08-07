@@ -85,11 +85,7 @@ _app.startUp = () => {
                 secondImage: secondImage
               };
         
-              // Memorizza i dati del prodotto nella sessionStorage
               sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
-        
-              // Reindirizza alla pagina di dettaglio
-              window.location.href = 'product-details.html';
             });
         });
     }
