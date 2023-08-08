@@ -115,8 +115,7 @@ _app.startUp = () => {
                 sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
               });
         } else {
-            // Nessun dato del prodotto trovato, gestisci questo caso a tua discrezione
-            alert('Something went worng :(');
+          window.location.href = 'index.html';
         }
 
         const container = document.getElementById("imgDetail");

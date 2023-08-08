@@ -125,7 +125,8 @@ a {
 }
 
 .allImg{
-	max-height: 17vh;
+	height: 17vh;
+	width: 17vh;
 	aspect-ratio: 1/1;
 	background-color: var(--secondary);
 }
@@ -139,7 +140,7 @@ a {
 	background-color: var(--secondary);
 	color: var(--primary);
 	aspect-ratio: 1/1;
-	height: 10vh;
+	height: 6vh;
 }
 
 @media only screen and (max-device-width: 480px){
