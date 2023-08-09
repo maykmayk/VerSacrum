@@ -112,7 +112,6 @@ _app.startUp = () => {
             sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
           });
     } else {
-      window.location.href = 'index.html';
     }
 
     const container = document.getElementById("imgDetail");
