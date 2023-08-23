@@ -75,7 +75,7 @@ _app.hoverProductTee = () => {
         originalSrcs[i] = images[i].src;
 
         images[i].addEventListener("mouseover", () => {
-            images[i].src = `./asset/images/fullSize/tee${i + 1}Back.png`;
+            images[i].src = `./asset/images/fullSize/tees/tee${i + 1}Back.png`;
         });
 
         images[i].addEventListener("mouseout", () => {
@@ -154,13 +154,15 @@ _app.productZoom = () => {
 }
 
 _app.startUp = () => {
+	_app.getDate();
     window.addEventListener('load', () => {
 		_app.loader();
     });
+	if (window.location.href.includes('product-details.html')) {
+		_app.productZoom();
+	}
 	_app.hoverProductTee();
-    _app.redirectPageTee();
-	_app.productZoom();
-    _app.getDate();
+	_app.redirectPageTee();
 };
 
 _app.startUp();

@@ -120,12 +120,11 @@ a {
 	overflow: hidden;
 }
 
-.imgDetail:hover {
+#productImg:hover {
 	cursor: zoom-in;
 }
 
 .infoProd{
-	height: 17vh;
 	width: 100%;
 	background-color: var(--secondary);
 	color: var(--primary);
