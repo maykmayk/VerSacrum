@@ -124,11 +124,11 @@ a {
 	cursor: zoom-in;
 }
 
-.allImg{
+.infoProd{
 	height: 17vh;
-	width: 17vh;
-	aspect-ratio: 1/1;
+	width: 100%;
 	background-color: var(--secondary);
+	color: var(--primary);
 }
 
 #name {
