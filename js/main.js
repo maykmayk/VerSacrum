@@ -67,24 +67,27 @@ _app.loader = () => {
 		  // Avvia l'aggiornamento del loader
 		  requestAnimationFrame(updateLoader);
 }
+
 _app.hoverProductTee = () => {
 	const products = document.querySelectorAll('.product');
 
-products.forEach((product) => {
-    const sliderArrowLeft = product.querySelector('.sliderArrowLeft');
-    const sliderArrowRight = product.querySelector('.sliderArrowRight');
-    const imgElement = product.querySelector('.imgFit');
-    const frontImage = product.getAttribute('data-image');
-    const backImage = product.getAttribute('data-second-image');
+    products.forEach((product) => {
+        const sliderArrowRight = product.querySelector('.sliderArrowRight');
+        const imgElement = product.querySelector('.imgFit');
+        const frontImage = product.getAttribute('data-image');
+        const backImage = product.getAttribute('data-second-image');
+        let isFrontImage = true;
 
-    sliderArrowLeft.addEventListener('click', () => {
-        imgElement.src = frontImage;
-    });
+        sliderArrowRight.addEventListener('click', () => {
+            if (isFrontImage) {
+                imgElement.src = backImage;
+            } else {
+                imgElement.src = frontImage;
+            }
 
-    sliderArrowRight.addEventListener('click', () => {
-        imgElement.src = backImage;
+            isFrontImage = !isFrontImage;
+        });
     });
-});
 }
 _app.redirectPageTee = () => {
 	const products = document.querySelectorAll('.product');

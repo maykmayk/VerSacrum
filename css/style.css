@@ -106,6 +106,19 @@ a {
 	cursor: pointer;
 }
 
+.sliderContainer {
+    overflow: hidden;
+    cursor: grab;
+}
+
+.sliderContainer img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
 .imgFit {
 	background-color: var(--secondary);
 	width:100%;
