@@ -68,20 +68,23 @@ _app.loader = () => {
 		  requestAnimationFrame(updateLoader);
 }
 _app.hoverProductTee = () => {
-	const images = document.querySelectorAll('[id^="img"]');
-    const originalSrcs = [];
+	const products = document.querySelectorAll('.product');
 
-    for (let i = 0; i < images.length; i++) {
-        originalSrcs[i] = images[i].src;
+products.forEach((product) => {
+    const sliderArrowLeft = product.querySelector('.sliderArrowLeft');
+    const sliderArrowRight = product.querySelector('.sliderArrowRight');
+    const imgElement = product.querySelector('.imgFit');
+    const frontImage = product.getAttribute('data-image');
+    const backImage = product.getAttribute('data-second-image');
 
-        images[i].addEventListener("mouseover", () => {
-            images[i].src = `./asset/images/fullSize/tees/tee${i + 1}Back.png`;
-        });
+    sliderArrowLeft.addEventListener('click', () => {
+        imgElement.src = frontImage;
+    });
 
-        images[i].addEventListener("mouseout", () => {
-            images[i].src = originalSrcs[i];
-        });
-    }
+    sliderArrowRight.addEventListener('click', () => {
+        imgElement.src = backImage;
+    });
+});
 }
 _app.redirectPageTee = () => {
 	const products = document.querySelectorAll('.product');
