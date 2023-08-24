@@ -22,10 +22,10 @@
 	font-family: "Med";
 	src: url("../asset/font/NeueHaasDisplay-Roman.ttf");
 }
-
+/* 
 html, body {
   	overflow-x: hidden;
-}
+} */
 
 body {
   	position: relative;
@@ -66,7 +66,6 @@ a {
     font-family: "VerSacrum";
   }
 
-
 .lightF {
 	font-family: "Light";
 }
@@ -81,6 +80,10 @@ a {
   
 .pointer {
     cursor: pointer;
+}
+
+.overflow-x-hidden {
+	overflow-x: hidden
 }
 
 .verSacrum {

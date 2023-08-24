@@ -16,56 +16,44 @@ _app.getDate = () => {
 }
 
 _app.loader = () => {
-	// La funzione viene chiamata quando tutti gli elementi della pagina sono stati caricati
-      
-        // Simuliamo il caricamento della pagina per 3 secondi
-        setTimeout(() => {
-			// Nascondi il loader impostando l'opacità a 0
-			const loader = document.getElementById('loader');
-			loader.style.opacity = '0';
-		
-			// Nascondi il loader completamente dopo 1 secondo
-			setTimeout(() => {
-			  loader.style.display = 'none';
-			}, 1000);
-  
-		  }, 3000);
-		
-		  // Aggiorna il numero di caricamento da 0 a 100 con curva di Bezier
-		  const loader = document.getElementById('loader');
-		  const numLoader = document.getElementById('numLoader');
-		  const duration = 1000; // Tempo in millisecondi per il caricamento completo
-		  let startTime = null;
-		
-		  function bezier(t) {
-			return t * t * (3 - 2 * t); // Funzione di curva di Bezier
-		  }
-		
-		  function updateLoader(timestamp) {
-			if (!startTime) {
-			  startTime = timestamp;
-			}
-		
-			const progress = Math.min(1, (timestamp - startTime) / duration); // Progresso normalizzato tra 0 e 1
-			const bezierValue = bezier(progress); // Calcola la curva di Bezier
-		
-			numLoader.textContent = Math.floor(bezierValue * 100); // Calcola il valore del numero con curva di Bezier
-		
-			if (progress < 1) {
-			  requestAnimationFrame(updateLoader);
-			} else {
-			  // Quando il caricamento raggiunge il 100%, nascondi il loader dopo 1 secondo impostando l'opacità a 0
-			  setTimeout(() => {
-				loader.style.opacity = '0';
-				setTimeout(() => {
-				  loader.style.display = 'none';
-				}, 1000);
-			  }, 1000);
-			}
-		  }
-		
-		  // Avvia l'aggiornamento del loader
-		  requestAnimationFrame(updateLoader);
+    const body = document.body;
+    const loader = document.getElementById('loader');
+    const numLoader = document.getElementById('numLoader');
+    const duration = 1000; // Tempo in millisecondi per il caricamento completo
+    let startTime = null;
+
+    function bezier(t) {
+        return t * t * (3 - 2 * t); // Funzione di curva di Bezier
+    }
+
+    function updateLoader(timestamp) {
+        if (!startTime) {
+            startTime = timestamp;
+        }
+
+        const progress = Math.min(1, (timestamp - startTime) / duration); // Progresso normalizzato tra 0 e 1
+        const bezierValue = bezier(progress); // Calcola la curva di Bezier
+
+        numLoader.textContent = Math.floor(bezierValue * 100); // Calcola il valore del numero con curva di Bezier
+
+        if (progress < 1) {
+            requestAnimationFrame(updateLoader);
+        } else {
+            // Quando il caricamento raggiunge il 100%, nascondi il loader dopo 1 secondo impostando l'opacità a 0
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    body.classList.remove('overflow-hidden'); // Abilita lo scroll rimuovendo la classe
+                    body.classList.add('overflow-x-hidden'); // Abilita lo scroll rimuovendo la classe
+                }, 1000);
+            }, 1000);
+        }
+    }
+
+    body.classList.add('overflow-hidden');
+
+    requestAnimationFrame(updateLoader);
 }
 
 _app.hoverProductTee = () => {
