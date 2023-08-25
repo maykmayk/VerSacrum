@@ -56,27 +56,6 @@ _app.loader = () => {
     requestAnimationFrame(updateLoader);
 }
 
-_app.hoverProductTee = () => {
-	const products = document.querySelectorAll('.product');
-
-    products.forEach((product) => {
-        const sliderArrowRight = product.querySelector('.sliderArrowRight');
-        const imgElement = product.querySelector('.imgFit');
-        const frontImage = product.getAttribute('data-image');
-        const backImage = product.getAttribute('data-second-image');
-        let isFrontImage = true;
-
-        sliderArrowRight.addEventListener('click', () => {
-            if (isFrontImage) {
-                imgElement.src = backImage;
-            } else {
-                imgElement.src = frontImage;
-            }
-
-            isFrontImage = !isFrontImage;
-        });
-    });
-}
 _app.redirectPageTee = () => {
 	const products = document.querySelectorAll('.product');
     products.forEach(product => {
@@ -99,52 +78,15 @@ _app.redirectPageTee = () => {
         });
     });
 	const productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
-	const productImages = [productData.image, productData.secondImage];
-	let currentImageIndex = 0;
-	const productImg = document.getElementById('productImg');
-  
-	function updateImage() {
-	  productImg.src = productImages[currentImageIndex];
-	}
-  
 	if (productData) {
-		updateImage();
-	
-		const sliderArrowLeft = document.getElementById('sliderArrowLeft');
-		const sliderArrowRight = document.getElementById('sliderArrowRight');
-	
-		sliderArrowLeft.addEventListener('click', () => {
-		  currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
-		  updateImage();
-		});
-	
-		sliderArrowRight.addEventListener('click', () => {
-		  currentImageIndex = (currentImageIndex + 1) % productImages.length;
-		  updateImage();
-		});	
-  
-	  document.getElementById('name').innerText = productData.name;
-	  document.getElementById('price').innerText = productData.price;
-	  document.getElementById('stories').innerText = productData.stories;
+		console.log(productData)
+		document.getElementById('name').innerText = productData.name;
+		document.getElementById('price').innerText = productData.price;
+		document.getElementById('stories').innerText = productData.stories;
+		document.getElementById('productImg1').src = productData.image;
+		document.getElementById('productImg2').src = productData.secondImage;
 	} else {
 	}
-}
-_app.productZoom = () => {
-	const container = document.getElementById("productImg");
-    const img = document.getElementById("productImg");
-    container.addEventListener("mousemove", onZoom);
-    container.addEventListener("mouseover", onZoom);
-    container.addEventListener("mouseleave", offZoom);
-    function onZoom(e) {
-        const x = e.clientX - e.target.offsetLeft;
-        const y = e.clientY - e.target.offsetTop;
-        img.style.transformOrigin = `${x}px ${y}px`;
-        img.style.transform = "scale(2.5)";
-    }
-    function offZoom(e) {
-        img.style.transformOrigin = `center center`;
-        img.style.transform = "scale(1)";
-    }
 }
 
 _app.startUp = () => {
@@ -152,10 +94,38 @@ _app.startUp = () => {
     window.addEventListener('load', () => {
 		_app.loader();
     });
+
 	if (window.location.href.includes('product-details.html')) {
-		_app.productZoom();
+		const swiperContainer = document.querySelector('.mySwiper');
+		const paginationElement = document.createElement('div');
+		paginationElement.classList.add('swiper-pagination');
+		swiperContainer.appendChild(paginationElement);
+
+		var swiper = new Swiper('.mySwiper', {
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true
+			},
+		});
+	} else {
+		for (let i = 1; i <= 9; i++) {
+			const swiperContainer = document.querySelector(`.mySwiper${i}`);
+			const paginationId = `pagination${i}`;
+					const paginationElement = document.createElement('div');
+			paginationElement.classList.add('swiper-pagination');
+			paginationElement.setAttribute('id', paginationId);
+			swiperContainer.appendChild(paginationElement);
+			
+			var swiper = new Swiper(`.mySwiper${i}`, {
+				loop: true,
+				pagination: {
+					el: `#${paginationId}`,
+					clickable: true
+				},
+			});
+		}
 	}
-	_app.hoverProductTee();
 	_app.redirectPageTee();
 };
 

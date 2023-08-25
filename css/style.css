@@ -158,6 +158,21 @@ a {
 	height: 6vh;
 }
 
+.swiper-pagination-bullet {
+    width: 10px !important;; 
+    height: 10px !important;;
+    background-color: var(--primary) !important;;
+    opacity: 0.5 !important;;
+    border-radius: 50% !important;;
+    margin: 0 4px !important;;
+    transition: background-color 0.3s, opacity 0.3s !important;;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary) !important;;
+    opacity: 1 !important;;
+}
+
 @media only screen and (max-device-width: 480px){
 	.fourSectCont{
 		width: 100%;
@@ -172,5 +187,11 @@ a {
 	#name {
 		font-size:30px;
 		line-height: 90%;
+	}
+
+	.swiper-pagination-bullet {
+		width: 6px !important; 
+		height: 6px !important;
+		margin: 0 2px !important;
 	}
 }
