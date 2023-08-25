@@ -95,36 +95,10 @@ _app.startUp = () => {
 		_app.loader();
     });
 
-	if (window.location.href.includes('product-details.html')) {
-		const swiperContainer = document.querySelector('.mySwiper');
-		const paginationElement = document.createElement('div');
-		paginationElement.classList.add('swiper-pagination');
-		swiperContainer.appendChild(paginationElement);
-
-		var swiper = new Swiper('.mySwiper', {
+	for (let i = 1; i <= 9; i++) {
+		var swiper = new Swiper(`.mySwiper${i}`, {
 			loop: true,
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true
-			},
 		});
-	} else {
-		for (let i = 1; i <= 9; i++) {
-			const swiperContainer = document.querySelector(`.mySwiper${i}`);
-			const paginationId = `pagination${i}`;
-					const paginationElement = document.createElement('div');
-			paginationElement.classList.add('swiper-pagination');
-			paginationElement.setAttribute('id', paginationId);
-			swiperContainer.appendChild(paginationElement);
-			
-			var swiper = new Swiper(`.mySwiper${i}`, {
-				loop: true,
-				pagination: {
-					el: `#${paginationId}`,
-					clickable: true
-				},
-			});
-		}
 	}
 	_app.redirectPageTee();
 };
