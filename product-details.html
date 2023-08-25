@@ -7,8 +7,8 @@
     <title>Ver Sacrum - Art Is Erotic</title>
     <link rel="icon" href="./asset/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="fold-regular w-100 mt-2">
-            <img class="w-100" src="asset/images/svg/logoArancio.svg" alt="" />
+            <img class="w-100" src="asset/images/svg/mainLogo.svg" alt="" />
         </div>
         <div class="d-flex justify-content-center fs-2 mt-2">©2023 - Art Is Erotic</div>
         <div class="d-flex justify-content-center text-center text-uppercase subHero">Igniting artistic allure, our mission is to fuel self-expression through fashion</div>
@@ -46,17 +46,58 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 d-flex flex-column align-items-between">
-                <div>
+                <div class="mb-2">
                     <div class="mb-1 mt-3 mt-md-0" id="name"></div>
                     <div class="fs-1 mb-2" id="price"></div>
-                    <div class="fs-6 mb-2" id="stories"></div>
-                </div>
-                <div class="mt-auto d-flex ms-2">
-                    <div class="infoProd p-3 row d-flex align-items-center ">
-                        <div class="col-8 fs-6">For inquiries or to make a purchase, please feel free to contact us</div>
-                        <div class="col-2 h-100 d-flex align-items-center justify-content-center"><a href="https://wa.me/+393425379832"><i class="fa fa-whatsapp fs-1"></i></a></div>
-                        <div class="col-2 h-100 d-flex align-items-center justify-content-center"><a href="https://www.instagram.com/ver_sacrum_brand/?msg=1"><i class="fa fa-instagram fs-1"></i></a></div>
+                    <div id="accordion" >
+                        <div>
+                          <a data-bs-toggle="collapse" href="#collapseStory" class="d-flex justify-content-between align-items-center">
+                            <div class="fs-4">LEGEND</div>
+                            <div><img src="./asset/images/icons/arrow-right.svg" class="rotate-icon"></div>
+                          </a>
+                          <div id="collapseStory" class="collapse" data-bs-parent="#accordion">
+                            <div class="card-body" id="stories"></div>
+                          </div>
+                        </div>
+                      
+                        <div class="line mt-2 mb-2"></div>
                         
+                        <div>
+                          <a data-bs-toggle="collapse" href="#collapseDetails" class="d-flex justify-content-between align-items-center">
+                            <div class="fs-4">DETAILS</div>
+                            <div><img src="./asset/images/icons/arrow-right.svg" class="rotate-icon"></div>
+                          </a>
+                          <div id="collapseDetails" class="collapse" data-bs-parent="#accordion">
+                            <div class="card-body" id="details">
+                                <ul>
+                                    <li>Mesh Fabric</li>
+                                    <li>Psycho AOP</li>
+                                    <li>100% Polyester</li>
+                                </ul>
+                            Delivered in the VS emblematic packaging' - includes stickers 
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="line mt-2 mb-2"></div>
+
+                        <div>
+                            <a data-bs-toggle="collapse" href="#collapseBuy" class="d-flex justify-content-between align-items-center">
+                              <div class="fs-4">BUY</div>
+                              <div><img src="./asset/images/icons/arrow-right.svg" class="rotate-icon"></div>
+                            </a>
+                            <div id="collapseBuy" class="collapse" data-bs-parent="#accordion">
+                              <div class="card-body" id="buy">
+                                <div class="row d-flex align-items-center w-100">
+                                    <div class="col-8 fs-6">For inquiries or to make a purchase, please feel free to contact us</div>
+                                    <div class="col-2 h-100 d-flex align-items-center justify-content-center"><a href="https://wa.me/+393425379832"><i class="fa fa-whatsapp fs-1"></i></a></div>
+                                    <div class="col-2 h-100 d-flex align-items-center justify-content-center"><a href="https://www.instagram.com/ver_sacrum_brand/?msg=1"><i class="fa fa-instagram fs-1"></i></a></div>
+                                </div>
+                            </div>
+                            </div>
+                          </div>
+                        
+                          <div class="line mt-2 mb-2"></div>
                     </div>
                 </div>
             </div>

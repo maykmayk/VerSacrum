@@ -74,8 +74,8 @@ a {
     --black: #000;
     --white: #fff;
   
-    --primary: #dbd8cf;
-    --secondary: #d95b36;
+    --primary: #dbd8cf;;
+    --secondary: #d95b36;;
 }
   
 .pointer {
@@ -156,6 +156,14 @@ a {
 	color: var(--primary);
 	aspect-ratio: 1/1;
 	height: 6vh;
+}
+
+.line{
+	border:1px solid var(--secondary);
+}
+
+.rotate-icon {
+	transition: transform 0.3s ease;
 }
 
 @media only screen and (max-device-width: 480px){

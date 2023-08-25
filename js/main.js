@@ -89,6 +89,27 @@ _app.redirectPageTee = () => {
 	}
 }
 
+_app.openAccord = () => {
+	const accordionItems = document.querySelectorAll('[data-bs-toggle="collapse"]');
+	accordionItems.forEach(item => {
+		item.addEventListener('click', () => {
+			const icon = item.querySelector('img.rotate-icon');
+			const allIcons = document.querySelectorAll('img.rotate-icon');
+			if (!item.classList.contains('show')) {
+				allIcons.forEach(otherIcon => {
+					otherIcon.style.transition = 'transform 0.3s ease';
+					otherIcon.style.transform = 'rotate(0deg)';
+				});
+				icon.style.transition = 'transform 0.3s ease';
+				icon.style.transform = 'rotate(90deg)';
+			} else {
+				icon.style.transition = 'transform 0.3s ease';
+				icon.style.transform = 'rotate(0deg)';
+			}
+		});
+	});
+}		
+
 _app.startUp = () => {
 	_app.getDate();
     window.addEventListener('load', () => {
@@ -100,6 +121,7 @@ _app.startUp = () => {
 			loop: true,
 		});
 	}
+	_app.openAccord();
 	_app.redirectPageTee();
 };
 
